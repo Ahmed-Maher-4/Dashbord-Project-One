@@ -5,6 +5,8 @@
     --green-color: #22c55e;
     --red-color: #f44336;
     --gray-color: #888;
+    --border-radius: 5px;
+    --transition: 0.3s;
 }
 
 
@@ -53,11 +55,30 @@ a {
     outline: none;
 }
 
-/* Start SideBar */
+/* Start Side */
 .side {
-    transition: 0.3s;
+    transition: var(--transition);
     width: 250px;
+    z-index: 1;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    animation: side 1.2s .3s cubic-bezier(.4, 2, .6, 1) backwards;
+}
+
+@keyframes side {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.side>h3 {
+    margin-bottom: 50px;
+    position: relative;
 }
 
 .side>h3::before,
@@ -81,12 +102,8 @@ a {
     bottom: -29px;
 }
 
-.side>h3 {
-    margin-bottom: 50px;
-}
-
 .side ul li a {
-    transition: 0.3s;
+    transition: var(--transition);
     margin-bottom: 5px;
 }
 
@@ -125,9 +142,26 @@ a {
     overflow: hidden;
 }
 
-/* End SideBar */
+/* End Side */
 
 /* Start Header */
+.head {
+    transition: var(--transition);
+    animation: header 1.2s .2s cubic-bezier(.4, 2, .6, 1) backwards;
+}
+
+@keyframes header {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .head .search::before {
     font-family: var(--fa-style-family-classic);
     content: "\f002";
@@ -143,7 +177,7 @@ a {
 .head .search input {
     border: 1px solid #ccc;
     width: 160px;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     transition: width 0.3s;
 }
 
@@ -177,6 +211,23 @@ a {
 /* End Header */
 
 /* Start heading  */
+.heading {
+    animation: sectionFade 1.2s cubic-bezier(.4, 2, .6, 1);
+}
+
+@keyframes sectionFade {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
 .heading::before,
 .heading::after {
     content: "";
@@ -200,6 +251,19 @@ a {
 /* Start Dashboard-page */
 .wrapper {
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    animation: sectionFade 1.2s cubic-bezier(.4, 2, .6, 1);
+}
+
+@keyframes sectionFade {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 @media (max-width: 767px) {
@@ -247,7 +311,7 @@ a {
 
 .welcome .btn {
     margin: 0 10px 10px auto;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 
@@ -277,7 +341,7 @@ a {
     bottom: 10px;
     right: -17px;
     padding: 2px 5px;
-    border-radius: 5px;
+    border-radius: var(--border-radius)
 }
 
 .targets .target-row .prog>span span::before {
@@ -342,7 +406,7 @@ a {
 }
 
 .tasks .icon:hover {
-    transition: 0.3s;
+    transition: var(--transition);
     color: var(--red-color);
     cursor: pointer;
 }
@@ -353,7 +417,7 @@ a {
 
 .search .content span {
     padding: 3px 15px;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     background-color: #eee;
 }
 
@@ -368,7 +432,7 @@ a {
 
 .uploads .content>span {
     padding: 3px 15px;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     background-color: #eee;
 }
 
@@ -499,6 +563,19 @@ table {
 
 .setting-page {
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    animation: sectionFade 1.2s cubic-bezier(.4, 2, .6, 1);
+}
+
+@keyframes sectionFade {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 @media (max-width:767px) {
@@ -525,7 +602,7 @@ table {
     margin-top: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: var(--border-radius)
 }
 
 .general .email {
@@ -539,7 +616,7 @@ table {
     border: 1px solid #ddd;
     padding: 12px;
     border-radius: 5px 0 0 5px;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .social input {
@@ -571,7 +648,7 @@ table {
     width: 15px;
     height: 15px;
     border: 2px solid var(--gray-color);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     left: 1px;
     top: 4px;
 }
@@ -598,7 +675,7 @@ table {
     border-radius: 3px;
     background-color: var(--blue-color);
     transform: scale(0) rotate(360deg);
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .widgets input[type="checkbox"]:checked+label::after {
@@ -647,7 +724,7 @@ table {
     text-align: center;
     background-color: var(--blue-color);
     transform: scale(0);
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .backup input[type="radio"]:checked+label::after {
@@ -697,6 +774,21 @@ table {
 /* Start Setting-page */
 
 /* Start Profile-Page */
+.profile-page {
+    animation: sectionFade 1.2s cubic-bezier(.4, 2, .6, 1);
+}
+
+@keyframes sectionFade {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
 .profile-page .prof img {
     width: 150px;
@@ -732,7 +824,7 @@ table {
 .profile-page .info .box {
     flex-wrap: wrap;
     border-bottom: 1px solid #eee;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .prof .info .box:hover {
@@ -777,7 +869,7 @@ table {
     background-color: #eee;
     border-radius: 10px;
     font-size: 18px;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .skills ul li:hover {
@@ -805,6 +897,19 @@ table {
 
 .projects-page {
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    animation: sectionFade 1.2s cubic-bezier(.4, 2, .6, 1);
+}
+
+@keyframes sectionFade {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 @media (max-width:767px) {
@@ -851,7 +956,7 @@ table {
     width: 200px;
     height: 5px;
     background-color: #eee;
-    border-radius: 5px;
+    border-radius: var(--border-radius)
 }
 
 .projects-page .box-info .range div span {
@@ -860,7 +965,7 @@ table {
     height: 100%;
     left: 0;
     top: 0;
-    border-radius: 5px;
+    border-radius: var(--border-radius)
 }
 
 @media (max-width:767px) {
@@ -878,6 +983,19 @@ table {
 /* Start Courses-Page */
 .courses-page {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    animation: sectionFade 1.2s cubic-bezier(.4, 2, .6, 1);
+}
+
+@keyframes sectionFade {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .courses-page .box {
@@ -906,7 +1024,7 @@ table {
     background-color: var(--blue-color);
     color: white;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: var(--border-radius)
 }
 
 .courses-page .box .data .btn:hover {
@@ -919,6 +1037,19 @@ table {
 .files-page {
     flex-direction: row-reverse;
     align-items: flex-start;
+    animation: sectionFade 1.2s cubic-bezier(.4, 2, .6, 1);
+}
+
+@keyframes sectionFade {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .files-page .pdf-file {
@@ -939,7 +1070,7 @@ table {
 
 .files-page .pdf-file .box .img img {
     width: 80px;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .files-page .pdf-file .box .img i {
@@ -1000,19 +1131,73 @@ table {
 /* Start Plans-Page */
 .plans-page {
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    animation: sectionFade 1.2s cubic-bezier(.4, 2, .6, 1);
+}
+
+@keyframes sectionFade {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .plans-page .plan .info {
     border: 2px solid white;
+}
+
+.plans-page .plan:nth-child(1) .info {
+    outline: 2px solid var(--green-color);
+}
+
+.plans-page .plan:nth-child(2) .info {
     outline: 2px solid var(--blue-color);
 }
 
-@media (max-width:767px) {
+.plans-page .plan:nth-child(3) .info {
+    outline: 2px solid var(--orange-color);
+}
+
+@media (max-width: 767px) {
+    .plans-page {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px;
+    }
+
     .plans-page .plan {
-        width: 340px;
-        padding: 15px;
+        width: 100% !important;
+        padding: 10px !important;
+        margin-bottom: 15px;
+    }
+
+    .plans-page .plan .info h1 {
+        font-size: 22px;
+    }
+
+    .plans-page .plan .info h3 {
+        font-size: 16px;
+    }
+
+    .plans-page .plan ul {
+        padding: 0;
+    }
+
+    .plan li span {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+
+    .plan .help {
+        font-size: 14px;
+        padding: 5px 10px;
     }
 }
+
 
 /* End Plans-Page */
 
@@ -1058,7 +1243,7 @@ table {
 /* Start Btn Shape */
 .btn-shape {
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     padding: 3px 10px;
     margin: 0 10px 10px auto;
     background-color: var(--blue-color);
@@ -1069,7 +1254,7 @@ table {
 }
 
 .shape {
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     padding: 3px 10px;
     background-color: #eee;
     width: fit-content;
